@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <welcome-file-list>
+        <welcome-file>login.html</welcome-file>
+    </welcome-file-list>
+    
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>dao.loginServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginCheck</url-pattern>
+    </servlet-mapping>
+
+    <!-- 过滤器 -->
+    <filter>
+        <filter-name>successFilter</filter-name>
+        <filter-class>util.SuccessFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>successFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>
